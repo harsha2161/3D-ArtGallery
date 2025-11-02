@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Interactive 3D Art Gallery - Two Rooms</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@5.0.0/dist/aframe-animation-component.min.js"></script>
+    <style> body { margin: 0; } </style>
+  </head>
+  <body>
+    <a-scene>
+
+      <a-entity camera wasd-controls look-controls movement-controls="fly: true; speed: 5" position="0 1.6 8"></a-entity>
+
+      <a-plane color="red" width="50" height="50" rotation="-90 0 0" position="0 0 0"></a-plane>
+
+      <a-plane color="black" width="3" height="20" rotation="-90 0 0" position="0 0.01 0"></a-plane>
+
+      <a-box position="0 2 -10" depth="0.1" height="4" width="20" color="#E6C67A"></a-box> <a-box position="0 2 10" depth="0.1" height="4" width="20" color="#E6C67A"></a-box> <a-box position="-10 2 0" rotation="0 90 0" depth="0.1" height="4" width="20" color="#E6C67A"></a-box> <a-box position="10 2 0" rotation="0 90 0" depth="0.1" height="4" width="20" color="#E6C67A"></a-box> <a-box position="-5 2 0" rotation="0 90 0" depth="0.1" height="4" width="10" color="#E6C67A"></a-box> 
+      <a-box position="5 2 0" rotation="0 90 0" depth="0.1" height="4" width="10" color="#E6C67A"></a-box>
+      
+      <a-plane color="#FDF5E6" width="20" height="20" rotation="90 0 0" position="0 4 0"></a-plane>
+
+      <a-image src="pic1.jpg" position="-4 2 -9.95" width="3" height="2"></a-image>
+      <a-image src="pic2.jpg" position="4 2 -9.95" width="3" height="2"></a-image>
+      <a-image src="pic3.jpg" position="0 2 9.85" width="3" height="2"></a-image>
+      <a-image src="pic22.jpg" position="4 2 9.85" width="3" height="2"></a-image>
+      <a-image src="pic4.jpg" position="-4 2 9.85" width="3" height="2"></a-image> 
+      <a-image src="pic5.jpg" position="-9.95 2 -6" rotation="0 90 0" width="3" height="2"></a-image> 
+      <a-image src="pic8.jpg" position="-9.95 2 0" rotation="0 90 0" width="3" height="2"></a-image> 
+      <a-image src="pic9.jpg" position="-9.85 2 6" rotation="0 90 0" width="3" height="2"></a-image> 
+      <a-image src="pic10.jpg" position="9.85 2 -6" rotation="0 -90 0" width="3" height="2"></a-image> 
+      <a-image src="pic11.jpg" position="9.85 2 0" rotation="0 -90 0" width="3" height="2"></a-image> 
+      <a-image src="pic12.jpg" position="9.85 2 6" rotation="0 -90 0" width="3" height="2"></a-image>
+      <a-image src="pic11.jpg" position="9.9 2 0" rotation="0 -90 0" width="3" height="2"></a-image> 
+      <a-image src="pic12.jpg" position="9.95 2 6" rotation="0 -90 0" width="3" height="2"></a-image> 
+      <a-image src="pic13.jpg" position="4.95 2 3" rotation="0 -90 0" width="3" height="2"></a-image>
+      <a-image src="pic14.jpg" position="4.95 2 -2" rotation="0 -90 0" width="3" height="2"></a-image>
+      <a-image src="pic15.jpg" position="-4.95 2 -2" rotation="0 -90 0" width="3" height="2"></a-image>
+      <a-image src="pic16.jpg" position="5.1 2 2" rotation="0 -90 0" width="3" height="2"></a-image>
+      <a-image src="pic17.jpg" position="5.1 2 -2" rotation="0 -90 0" width="3" height="2"></a-image>
+      <a-image src="pic18.jpg" position="-4.95 2 2" rotation="0 -90 0" width="3" height="2"></a-image>
+      <a-image src="pic19.jpg" position="4.95 2 -2" rotation="0 -90 0" width="3" height="2"></a-image>
+      <a-image src="pic20.jpg" position="-5.1 2 2" rotation="0 -90 0" width="3" height="2"></a-image>
+      <a-image src="pic21.jpg" position="-5.1 2 -2" rotation="0 -90 0" width="3" height="2"></a-image>
+     
+      <a-entity id="door" gltf-model="models/door.glb" position="0 0.5 10" rotation="0 0 0"
+                animation="property: rotation; to: 0 90 0; dur: 1000; startEvents: openDoor">
+      </a-entity>
+
+      <a-box id="door-trigger" position="0 0.1 8" width="4" height="2" depth="0.1" opacity="0"
+             class="clickable"
+             event-set__open="event: click; _target: #door; _delay: 0; openDoor: true;">
+      </a-box>
+
+      <a-entity id="people">
+        <a-entity gltf-model="models/walker.glb" animation-mixer position="2 0 4" walk-random></a-entity>
+        <a-entity gltf-model="models/talker.glb" animation-mixer position="-3 0 2" look-at="[camera]"></a-entity>
+        <a-entity gltf-model="models/taker_photo.glb" animation-mixer position="0 0 6" photo-pose></a-entity>
+      </a-entity>
+
+    </a-scene>
+
+    </body>
+</html>
